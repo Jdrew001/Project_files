@@ -1,6 +1,4 @@
-/*
-    INSERT INTO Major(majorId, majorName, majorDescription, department)
-    VALUES(1, 'Accounting', 'This is the nerds', 'Business');
+/*load customers*/
 
     INSERT INTO Customer(accountNum, firstName, lastName, phoneNum, billingAddress)
         Values(1, 'Jane', 'Doe', 3214567899, '123 Gdcd Blvd, Grand Prairie, TX');
@@ -30,6 +28,6 @@
         Values(9, 'Travis', 'Love', 3336541234, '66 Why Not Dr, Oden, TX');
 
     INSERT INTO Customer(accountNum, firstName, lastName, phoneNum, billingAddress)
-        Values(10, 'Flash', 'Robin', 8769994356, 871 Nice Blvd, Thor, TX');
+        Values(10, 'Flash', 'Robin', 8769994356, '871 Nice Blvd, Thor, TX');
 
-*/
+

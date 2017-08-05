@@ -15,4 +15,10 @@ WHERE ord.accountNum = cus.accountNum
 AND ord.empId = emp.empId
 ;
 
+SELECT fur.itemCode, fur.description, fur.unitPrice, pur.quantitySold, pur.extendedPrice
+FROM /////.Furniture fur, /////.Purchase pur
+WHERE pur.orderNum = '/////'
+AND fur.itemCode = pur.itemCode
+; 
+
 /*3)*/
