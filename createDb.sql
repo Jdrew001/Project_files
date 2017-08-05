@@ -13,6 +13,15 @@ CREATE TABLE Customer
     lastName varchar2(20) NOT NULL,
     billingAddress varchar2(50) NOT NULL);
 
+CREATE TABLE Employee
+    (empId number(6) CONSTRAINT pk_emp Primary Key,
+    ssn number(9) NOT NULL,
+    firstName varchar2(20) NOT NULL,
+    lastName varchar2(20) NOT NULL,
+    eAddress varchar2(50),
+    phone number(10) NOT NULL,
+    salary number(7,2) NOT NULL);
+
 /*Put the employee table above this and different kinds of employees*/
 
 CREATE TABLE Orders
@@ -21,18 +30,19 @@ CREATE TABLE Orders
     orderDate Date NOT NULL,
     CONSTRAINT fk_empId FOREIGN KEY (empId) REFERENCES Employee(empId));
 
+CREATE TABLE Furniture
+    (itemCode number(6) CONSTRAINT pk_itemC PRIMARY KEY,
+    fname varchar2(20) not null,
+    unitPrice number(7,2) not null,
+    quantity number(5) not null);
+
 CREATE TABLE Purchase
     (CONSTRAINT fk_onum FOREIGN KEY (orderNum) REFERENCES Orders(orderNum),
     CONSTRAINT fk_itemCode FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode),
     extendedPrice number(7,2) not null,
     quantitySold number(3) not null);
 
-CREATE TABLE Furniture
-    (itemCode number(6) CONSTRAINT pk_itemC PRIMARY KEY,
-    fname varchar2(20) not null,
-    unitPrice number(7,2) not null,
-    quantity number(5) not null
-    );
+
 
 CREATE TABLE Shipment
     (shipmentId number(6) CONSTRAINT pk_shipment Primary Key,
@@ -51,12 +61,5 @@ CREATE TABLE Truck
     inspectionExpDate Date not null,
     CONSTRAINT fk_ship FOREIGN KEY (shipmentId) REFERENCES Shipment(shipmentId));
 
-CREATE TABLE Employee
-    (empId number(6) CONSTRAINT pk_emp Primary Key,
-    ssn number(9) NOT NULL,
-    firstName varchar2(20) NOT NULL,
-    lastName varchar2(20) NOT NULL,
-    eAddress varchar2(50),
-    phone number(10) NOT NULL,
-    salary number(7,2) NOT NULL);
+
 
