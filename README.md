@@ -12,3 +12,7 @@ git add .
 git commit -m "Whatever you did"
 
 git push origin master
+
+---------
+TO get what we did, then do git pull
+
