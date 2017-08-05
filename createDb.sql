@@ -14,6 +14,7 @@ CREATE TABLE Customer
     (accountNum number(6) CONSTRAINT pk_anum PRIMARY KEY,
     firstName varchar2(20) NOT NULL,
     lastName varchar2(20) NOT NULL,
+    phoneNum number(10) NOT NULL,
     billingAddress varchar2(50) NOT NULL);
 
 CREATE TABLE Employee
