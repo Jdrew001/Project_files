@@ -32,7 +32,7 @@ CREATE TABLE Orders
     shippingAddress varchar2(50) NOT NULL,
     orderDate Date DEFAULT SYSDATE NOT NULL,
     empId number(6) NOT NULL,
-    CONSTRAINT fk_empId FOREIGN KEY (empId) REFERENCES Employee(empId));
+    FOREIGN KEY (empId) REFERENCES Employee(empId));
 
 CREATE TABLE Furniture
     (itemCode number(6) CONSTRAINT pk_itemC PRIMARY KEY,
@@ -45,16 +45,15 @@ CREATE TABLE Purchase
     itemCode number(6) NOT NULL,
     extendedPrice number(7,2) NOT NULL,
     quantitySold number(3) NOT NULL,
-    orderNum number(6) NOT NULL,
-    CONSTRAINT fk_onum FOREIGN KEY (orderNum) REFERENCES Orders(orderNum),
-    CONSTRAINT fk_itemCode FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode));
+    FOREIGN KEY (orderNum) REFERENCES Orders(orderNum),
+    FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode));
 
 
 CREATE TABLE Shipment
     (shipmentId number(6) CONSTRAINT pk_shipment Primary Key,
     shippingDate Date NOT NULL,
     orderNum number(6) NOT NULL,
-    CONSTRAINT fk_onum FOREIGN KEY (orderNum) REFERENCES Orders(orderNum));
+    FOREIGN KEY (orderNum) REFERENCES Orders(orderNum));
 
 CREATE TABLE SalesRep
     (empId number(6) NOT NULL,
@@ -62,19 +61,21 @@ CREATE TABLE SalesRep
     PRIMARY KEY (empId),
     FOREIGN KEY (empId) REFERENCES Employee(empId));
 
+CREATE TABLE Truck
+    (vehicleNum number(6) CONSTRAINT pk_vnum Primary Key,
+    licenseExpDate Date not null,
+    inspectionExpDate Date not null,
+    shipmentId number(6) NOT NULL,
+    FOREIGN KEY (shipmentId) REFERENCES Shipment(shipmentId));
+
 CREATE TABLE Driver
     (empId number(6),
     licenseNum number(8) NOT NULL,
     licenseExp Date NOT NULL,
     vehicleNum number(6) NOT NULL,
-    CONSTRAINT fk_truck FOREIGN KEY (vehicleNum) REFERENCES Truck(vehicleNum));
+    FOREIGN KEY (vehicleNum) REFERENCES Truck(vehicleNum));
 
-CREATE TABLE Truck
-    (vehicleNum number(6) CONSTRAINT pk_vnum Primary Key,
-    licenseExpDate Date not null,
-    inspectionExpDate Date not null,
-    shipmentId number(6) NOT NULL
-    CONSTRAINT fk_ship FOREIGN KEY (shipmentId) REFERENCES Shipment(shipmentId));
+
 
 
 
