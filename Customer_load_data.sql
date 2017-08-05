@@ -1,4 +1,5 @@
-/*load customers*/
+/*
+
 
     INSERT INTO Customer(accountNum, firstName, lastName, phoneNum, billingAddress)
         Values(1, 'Jane', 'Doe', 3214567899, '123 Gdcd Blvd, Grand Prairie, TX');
@@ -20,7 +21,7 @@
 
     INSERT INTO Customer(accountNum, firstName, lastName, phoneNum, billingAddress)
         Values(7, 'Jacky', 'Nice', 6789909321, '99 Old T St, Carrollton, TX');
-
+``
     INSERT INTO Customer(accountNum, firstName, lastName, phoneNum, billingAddress)
         Values(8, 'Mah', 'Patra', 2145558198, '800 Radha St, Paris, TX');
 
@@ -28,6 +29,6 @@
         Values(9, 'Travis', 'Love', 3336541234, '66 Why Not Dr, Oden, TX');
 
     INSERT INTO Customer(accountNum, firstName, lastName, phoneNum, billingAddress)
-        Values(10, 'Flash', 'Robin', 8769994356, '871 Nice Blvd, Thor, TX');
+        Values(10, 'Flash', 'Robin', 8769994356, 871 Nice Blvd, Thor, TX');
 
-
+*/
