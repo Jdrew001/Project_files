@@ -1,0 +1,10 @@
+NOtes on project
+
+where are the tables located on which account??
+
+grant select to mahapatra.
+
+After tables are created
+1) To a describe command to list the schema of each table
+2) Then you will to a select * from [tableName] on all tables
+
