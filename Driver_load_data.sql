@@ -17,15 +17,4 @@ INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
 INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
     Values(6, '66666666', '01-AUG-18', '32311');
 
-INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
-    Values(7, '77777777', '03-FEB-25', '22312');
-
-INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
-    Values(8, '88888888', '01-DEC-28', '78776');
-
-INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
-    Values(9, '99999999', '10-OCT-23', '82313');
-
-INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
-    Values(10, '10101010', '22-MAY-22', '99223');
 
