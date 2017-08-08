@@ -38,7 +38,6 @@ CREATE TABLE Furniture
 CREATE TABLE Purchase
     (orderNum number(6) NOT NULL,
     itemCode number(6) NOT NULL,
-    extendedPrice number(7,2) NOT NULL,
     quantitySold number(3) NOT NULL,
     FOREIGN KEY (orderNum) REFERENCES Orders(orderNum) ON DELETE CASCADE,
     FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode) ON DELETE CASCADE);
