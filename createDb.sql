@@ -20,14 +20,16 @@ CREATE TABLE Employee
     phone number(10) NOT NULL,
     salary number(7,2) NOT NULL);
 
-/*Put the employee table above this and different kinds of employees*/
+/*Put the employee table above this and different kinds of oemployees*/
 
 CREATE TABLE Orders
     (orderNum number(6) CONSTRAINT pk_num PRIMARY KEY,
     shippingAddress varchar2(50) NOT NULL,
     orderDate Date NOT NULL,
     empId number(6) NOT NULL,
-    FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE);
+    accountNum number(6) NOT NULL,
+    FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE,
+    FOREIGN KEY (accountNum) REFERENCES Customer(accountNum) ON DELETE CASCADE);
 
 CREATE TABLE Furniture
     (itemCode number(6) CONSTRAINT pk_itemC PRIMARY KEY,

@@ -12,7 +12,7 @@ INSERT INTO Furniture (itemCode, fdescription, unitPrice, quantity)
 	Values(3, 'Tri-tone Leather Sofa', 1049.99, 100);
 
 INSERT INTO Furniture (itemCode, fdescription, unitPrice, quantity)
-	Values(4, 'Traditional Brown Cherry 3-Drawer', 499.99, 20)
+	Values(4, 'Traditional Brown Cherry 3-Drawer', 499.99, 20);
 
 INSERT INTO Furniture (itemCode, fdescription, unitPrice, quantity)
 	Values(5, 'Round Cocktail Table', 294.00, 80);
