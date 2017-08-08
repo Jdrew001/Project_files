@@ -1,7 +1,3 @@
-/*
-    Insert into purchases
-*/
-
 INSERT INTO Purchase(orderNum, itemCode, quantitySold)
     VALUES (1, 3, 1);
 

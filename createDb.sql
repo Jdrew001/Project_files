@@ -20,7 +20,7 @@ CREATE TABLE Employee
     phone number(10) NOT NULL,
     salary number(7,2) NOT NULL);
 
-/*Put the employee table above this and different kinds of oemployees*/
+/*Put the employee table above this and different kinds of employees*/
 
 CREATE TABLE Orders
     (orderNum number(6) CONSTRAINT pk_num PRIMARY KEY,
@@ -53,7 +53,8 @@ CREATE TABLE Shipment
 
 CREATE TABLE SalesRep
     (empId number(6) NOT NULL,
-    commission number(2,2) NOT NULL,
+    commission number(3,2) NOT NULL,
+    profitGenerated number(8,2) NOT NULL,
     PRIMARY KEY (empId),
     FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE);
 
