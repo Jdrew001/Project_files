@@ -28,3 +28,8 @@ FROM Orders o, Employee e
 WHERE e.empId = o.empId
 AND o.orderNum = 1
 ;
+
+/*5)*/
+select sum(quantity * unitPrice) AS TotalValue
+from Furniture
+WHERE unitPrice > 25;
