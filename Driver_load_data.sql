@@ -1,4 +1,4 @@
-/*
+
 INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
     Values(1, '11111111', '13-FEB-21', '32341');
 
@@ -29,5 +29,3 @@ INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
 INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum,)
     Values(10, '10101010', '22-MAY-22', '99223');
 
-
-*/
