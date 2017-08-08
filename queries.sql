@@ -8,17 +8,19 @@ WHERE cus.accountNum = ord.accountNum
 ;
 
 /*2)*/
+SELECT *
+FROM (
 SELECT ord.orderNum, ord.shippingAddress, cus.lastName, cus.firstName, cus.billingAddress,
 cus.accountNum, emp.lastName, emp.firstName
 FROM /////.Orders ord, /////.Customer cus, /////.Employee emp
 WHERE ord.accountNum = cus.accountNum
-AND ord.empId = emp.empId
+AND ord.empId = emp.empId)
+WHERE orderNum = '/////'
 ;
 
 SELECT fur.itemCode, fur.description, fur.unitPrice, pur.quantitySold, pur.extendedPrice
 FROM /////.Furniture fur, /////.Purchase pur
-WHERE pur.orderNum = '/////'
-AND fur.itemCode = pur.itemCode
+WHERE fur.itemCode = pur.itemCode
 ; 
 
 /*3)*/
