@@ -19,6 +19,11 @@ SELECT fur.itemCode, fur.fdescription, fur.unitPrice, pur.quantitySold, pur.quan
 FROM Furniture fur, Purchase pur
 WHERE pur.orderNum = 1
 AND fur.itemCode = pur.itemCode
-; 
+;
 
 /*3)*/
+SELECT e.phone
+FROM Orders o, Employee e
+WHERE e.empId = o.empId
+AND o.orderNum = 1
+;
