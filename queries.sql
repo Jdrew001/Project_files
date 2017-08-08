@@ -30,6 +30,8 @@ AND o.orderNum = 1
 ;
 
 /*5)*/
-select sum(quantity * unitPrice) AS TotalValue
-from Furniture
-WHERE unitPrice > 25;
+SELECT sum(quantity * unitPrice)
+AS TotalValue
+FROM Furniture
+WHERE unitPrice > 25
+;
