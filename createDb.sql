@@ -1,12 +1,6 @@
-/*Create all the tables
-CREATE TABLE MAJOR
-    (majorId number(6) CONSTRAINT pk_mid PRIMARY KEY,
-    majorName varchar2(20) CONSTRAINT name_nnull NOT NULL,
-    majorDescription varchar2(35),
-    department varchar2(20));
+/*
 
-
-    CONSTRAINT fk_major FOREIGN KEY (majorId) REFERENCES Major(majorId)
+    Create all the tables
 
 */
 
@@ -26,25 +20,26 @@ CREATE TABLE Employee
     phone number(10) NOT NULL,
     salary number(7,2) NOT NULL);
 
-/*Put the employee table above this and different kinds of employees*/
+/*Put the employee table above this and different kinds of oemployees*/
 
 CREATE TABLE Orders
     (orderNum number(6) CONSTRAINT pk_num PRIMARY KEY,
     shippingAddress varchar2(50) NOT NULL,
-    orderDate Date DEFAULT SYSDATE NOT NULL,
+    orderDate Date NOT NULL,
     empId number(6) NOT NULL,
-    FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE);
+    accountNum number(6) NOT NULL,
+    FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE,
+    FOREIGN KEY (accountNum) REFERENCES Customer(accountNum) ON DELETE CASCADE);
 
 CREATE TABLE Furniture
     (itemCode number(6) CONSTRAINT pk_itemC PRIMARY KEY,
-    fname varchar2(20) NOT NULL,
+    fdescription varchar2(50) NOT NULL,
     unitPrice number(7,2) NOT NULL,
     quantity number(5) NOT NULL);
 
 CREATE TABLE Purchase
     (orderNum number(6) NOT NULL,
     itemCode number(6) NOT NULL,
-    extendedPrice number(7,2) NOT NULL,
     quantitySold number(3) NOT NULL,
     FOREIGN KEY (orderNum) REFERENCES Orders(orderNum) ON DELETE CASCADE,
     FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode) ON DELETE CASCADE);
