@@ -15,7 +15,8 @@ WHERE ord.accountNum = cus.accountNum
 AND ord.empId = emp.empId and ord.orderNum = 1
 ;
 
-SELECT fur.itemCode, fur.fdescription, fur.unitPrice, pur.quantitySold, pur.quantitySold * fur.unitPrice as extendedPrice
+SELECT fur.itemCode, fur.fdescription, fur.unitPrice, pur.quantitySold, pur.quantitySold * fur.unitPrice
+as extendedPrice
 FROM Furniture fur, Purchase pur
 WHERE pur.orderNum = 1
 AND fur.itemCode = pur.itemCode
