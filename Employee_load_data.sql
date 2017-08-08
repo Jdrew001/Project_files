@@ -1,8 +1,3 @@
-/*
-    Load data into Employee table
-*/
-
-
 INSERT INTO Employee(empId, ssn, firstName, lastName, eAddress, phone, salary)
 VALUES(1, '654761234', 'Door', 'Handle', 'frame@gmail.com', '4323218790', '30123');
 
