@@ -44,26 +44,25 @@ CREATE TABLE Purchase
     FOREIGN KEY (orderNum) REFERENCES Orders(orderNum) ON DELETE CASCADE,
     FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode) ON DELETE CASCADE);
 
+CREATE TABLE Truck
+    (vehicleNum number(6) CONSTRAINT pk_vnum Primary Key,
+    licenseExpDate Date not null,
+    inspectionExpDate Date not null);
 
 CREATE TABLE Shipment
     (shipmentId number(6) CONSTRAINT pk_shipment Primary Key,
     shippingDate Date NOT NULL,
+    vehicleNum number(6),
     orderNum number(6) NOT NULL,
+    FOREIGN KEY (vehicleNum) REFERENCES Truck(vehicleNum) ON DELETE CASCADE,
     FOREIGN KEY (orderNum) REFERENCES Orders(orderNum) ON DELETE CASCADE);
 
 CREATE TABLE SalesRep
-    (empId number(6) NOT NULL,
+    (empId number(6),
     commission number(3,2) NOT NULL,
     profitGenerated number(8,2) NOT NULL,
     PRIMARY KEY (empId),
     FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE);
-
-CREATE TABLE Truck
-    (vehicleNum number(6) CONSTRAINT pk_vnum Primary Key,
-    licenseExpDate Date not null,
-    inspectionExpDate Date not null,
-    shipmentId number(6) NOT NULL,
-    FOREIGN KEY (shipmentId) REFERENCES Shipment(shipmentId) ON DELETE CASCADE);
 
 CREATE TABLE Driver
     (empId number(6),
@@ -229,35 +228,53 @@ INSERT INTO Purchase(orderNum, itemCode, quantitySold)
 INSERT INTO Purchase(orderNum, itemCode, quantitySold)
     VALUES (7, 4, 2);
 
-    INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000001, '01-JAN-2018', 1);
+INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate)
+    VALUES(00002, '01-JAN-2020', '01-JAN-2019');
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000002, '02-JAN-2018', 3);
+INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate)
+    VALUES(00003, '01-JAN-2020', '01-JAN-2019');
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000003, '03-JAN-2018', 5);
+INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate)
+    VALUES(00004, '01-JAN-2020', '01-JAN-2019');
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000004, '03-JAN-2018', 4);
+INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate)
+    VALUES(00005, '01-JAN-2020', '01-JAN-2019');
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000005, '04-JAN-2018', 6);
+INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate)
+    VALUES(00006, '01-JAN-2020', '01-JAN-2019');
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000006, '05-JAN-2018', 1);
+INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate)
+    VALUES(00007, '01-JAN-2020', '01-JAN-2019');
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000007, '05-JAN-2018', 1);
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000001, '01-JAN-2018', 00002, 1);
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000008, '05-JAN-2018', 3);
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000002, '02-JAN-2018', 00002, 3);
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000009, '06-JAN-2018', 5);
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000003, '03-JAN-2018', 00002, 5);
 
-INSERT INTO Shipment(shipmentId, shippingDate, orderNum)
-VALUES(000010, '06-JAN-2018', 4);
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000004, '03-JAN-2018', 00003, 4);
+
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000005, '04-JAN-2018', 00004, 6);
+
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000006, '05-JAN-2018', 00004, 1);
+
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000007, '05-JAN-2018', 00005, 1);
+
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000008, '05-JAN-2018', 00005,3);
+
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000009, '06-JAN-2018', 00006, 5);
+
+INSERT INTO Shipment(shipmentId, shippingDate, vehicleNum, orderNum)
+VALUES(000010, '06-JAN-2018', 00006, 4);
 
 insert into SalesRep(empId, commission, profitGenerated)
 	values(7, 7.56, 20000);
@@ -270,24 +287,6 @@ insert into SalesRep(empId, commission, profitGenerated)
 
 insert into SalesRep(empId, commission, profitGenerated)
 	values(10, 9.75, 50000);
-
-INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate, shipmentId)
-    VALUES(00002, '01-JAN-2020', '01-JAN-2019', 000001);
-
-INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate, shipmentId)
-    VALUES(00003, '01-JAN-2020', '01-JAN-2019', 000001);
-
-INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate, shipmentId)
-    VALUES(00004, '01-JAN-2020', '01-JAN-2019', 000003);
-
-INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate, shipmentId)
-    VALUES(00005, '01-JAN-2020', '01-JAN-2019', 000004);
-
-INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate, shipmentId)
-    VALUES(00006, '01-JAN-2020', '01-JAN-2019', 000005);
-
-INSERT INTO Truck(vehicleNum, licenseExpDate, inspectionExpDate, shipmentId)
-    VALUES(00007, '01-JAN-2020', '01-JAN-2019', 000007);
 
 INSERT INTO Driver(empid, licenseNum, licenseExp, vehicleNum)
     Values(1, '11111111', '13-FEB-21', 00002);

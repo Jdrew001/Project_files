@@ -29,6 +29,15 @@ WHERE e.empId = o.empId
 AND o.orderNum = 1
 ;
 
+/*4)*/
+SELECT c.accountNum, c.firstName, c.lastName, c.phoneNum, c.billingAddress, o.shippingAddress
+FROM Customer c, Orders o, Shipment s, Truck t, Driver d
+WHERE c.accountNum = o.accountNum 
+    AND o.orderNum = s.orderNum
+    AND t.vehicleNum = s.vehicleNum
+    AND t.vehicleNum = d.vehicleNum
+    AND d.empId = 1;
+
 /*5)*/
 SELECT sum(quantity * unitPrice)
 AS TotalValue

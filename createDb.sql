@@ -44,26 +44,25 @@ CREATE TABLE Purchase
     FOREIGN KEY (orderNum) REFERENCES Orders(orderNum) ON DELETE CASCADE,
     FOREIGN KEY (itemCode) REFERENCES Furniture(itemCode) ON DELETE CASCADE);
 
+CREATE TABLE Truck
+    (vehicleNum number(6) CONSTRAINT pk_vnum Primary Key,
+    licenseExpDate Date not null,
+    inspectionExpDate Date not null);
 
 CREATE TABLE Shipment
     (shipmentId number(6) CONSTRAINT pk_shipment Primary Key,
     shippingDate Date NOT NULL,
+    vehicleNum number(6),
     orderNum number(6) NOT NULL,
+    FOREIGN KEY (vehicleNum) REFERENCES Truck(vehicleNum) ON DELETE CASCADE,
     FOREIGN KEY (orderNum) REFERENCES Orders(orderNum) ON DELETE CASCADE);
 
 CREATE TABLE SalesRep
-    (empId number(6) NOT NULL,
+    (empId number(6),
     commission number(3,2) NOT NULL,
     profitGenerated number(8,2) NOT NULL,
     PRIMARY KEY (empId),
     FOREIGN KEY (empId) REFERENCES Employee(empId) ON DELETE CASCADE);
-
-CREATE TABLE Truck
-    (vehicleNum number(6) CONSTRAINT pk_vnum Primary Key,
-    licenseExpDate Date not null,
-    inspectionExpDate Date not null,
-    shipmentId number(6) NOT NULL,
-    FOREIGN KEY (shipmentId) REFERENCES Shipment(shipmentId) ON DELETE CASCADE);
 
 CREATE TABLE Driver
     (empId number(6),
