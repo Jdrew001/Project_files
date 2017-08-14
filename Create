@@ -1,0 +1,18 @@
+SQL> desc Customer
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ACCOUNTNUM                                NOT NULL NUMBER(6)
+ FIRSTNAME                                 NOT NULL VARCHAR2(20)
+ LASTNAME                                  NOT NULL VARCHAR2(20)
+ PHONENUM                                  NOT NULL NUMBER(10)
+ BILLINGADDRESS                            NOT NULL VARCHAR2(50)
+
+
+SQL> desc Orders
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORDERNUM                                  NOT NULL NUMBER(6)
+ SHIPPINGADDRESS                           NOT NULL VARCHAR2(50)
+ ORDERDATE                                 NOT NULL DATE
+ EMPID                                              NUMBER(6)
+ ACCOUNTNUM                                         NUMBER(6)
